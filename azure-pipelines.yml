@@ -28,6 +28,13 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Main Subscription (c0f9897d-2c05-4a9b-aff5-96a202aeda58)'
+    appType: 'webApp'
+    WebAppName: 'cgstech2'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
